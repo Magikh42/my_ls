@@ -7,8 +7,9 @@
 
 NAME		:=	my_ls
 
-_SRCS		:=	main.c	\
-				options.c
+_SRCS		:=	main.c		\
+				options.c	\
+				get_targets.c
 
 SRCS		:=	$(_SRCS:%=src/%)
 

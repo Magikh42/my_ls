@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** my_ls
 ** File description:
-** get_options
+** options
 */
 
 #include "my.h"
@@ -39,7 +39,7 @@ char *get_options(int ac, char **av)
 {
     char *ret = NULL;
 
-    for (int i = 0; i < ac; i++) {
+    for (int i = 1; i < ac; i++) {
         if (!my_strcmp(av[i], "--"))
             return (ret);
         if (av[i][0] == '-')

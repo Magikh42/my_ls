@@ -12,5 +12,6 @@
 
 char *get_options(int ac, char **av);
 bool char_in_str(char c, char *str);
+char **get_targets(int ac, char **av);
 
 #endif /*__MY_LS__*/
