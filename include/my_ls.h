@@ -10,15 +10,7 @@
 
 #include <stdbool.h>
 
-typedef struct options_s
-{
-    bool l;
-    bool R;
-    bool d;
-    bool r;
-    bool t;
-} options_t;
-
-options_t get_options(int ac, char **av);
+char *get_options(int ac, char **av);
+bool char_in_str(char c, char *str);
 
 #endif /*__MY_LS__*/

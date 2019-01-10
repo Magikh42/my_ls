@@ -10,14 +10,13 @@
 
 #include <stddef.h>
 
-#define FALSE 0
-#define TRUE 1
-
 #define MAX(a, b) ((a) < (b) ? (b) : (a))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define ABS(a) ((a) < 0 ? (-a) : (a))
 
 #define IS_DIGIT(c) ((c) >= '0' && (c) <= '9')
+#define IS_LOWER(c) ((c) >= 'a' && (c) <= 'z')
+#define IS_UPPER(c) ((c) >= 'A' && (c) <= 'Z')
 #define IS_ALPHA(c) (((c) >= 'a' && (c) <= 'z') || ((c) >= 'A' && (c) <= 'Z'))
 
 void my_putchar(char c);
@@ -36,6 +35,8 @@ int my_strcmp(const char *s1, const char *s2);
 int my_strncmp(const char *s1, const char *s2, int n);
 char *my_strcat(char *dest, const char *src);
 char *my_strncat(char *dest, const char *src, int nb);
+
 void *smalloc(size_t size);
+void str_append(char **str, char *src);
 
 #endif

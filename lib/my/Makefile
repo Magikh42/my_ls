@@ -23,7 +23,8 @@ SRCS	:=	my_getnbr.c	\
 		my_strndup.c	\
 		my_strlen.c		\
 		my_strstr.c	\
-		smalloc.c
+		smalloc.c	\
+		str_append.c
 
 _SRCS		:=	$(SRCS:%=src/%)
 
