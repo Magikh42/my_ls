@@ -6,6 +6,8 @@
 */
 
 #include "my.h"
+#include <stdlib.h>
+#include <stddef.h>
 
 int count_targets(int ac, char **av)
 {
@@ -22,7 +24,24 @@ int count_targets(int ac, char **av)
 
 char **get_targets(int ac, char **av)
 {
-    char **ret = smalloc(count_targets(ac, av));
+    char **ret = smalloc((count_targets(ac, av) + 1) * sizeof(char *));
+    int i = 1;
+    int j = 0;
 
+    while (i < ac) {
+        if (!my_strcmp(av[i], "--")) {
+            i++;
+            break;
+        }
+        if (av[i][0] != '-') {
+            ret[j++] = av[i];
+        }
+        i++;
+    }
+    while (i < ac) {
+        ret[j++] = av[i];
+        i++;
+    }
+    ret[j] = NULL;
     return (ret);
 }
