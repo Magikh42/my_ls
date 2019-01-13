@@ -11,7 +11,7 @@
 #include <stdbool.h>
 #include <dirent.h>
 
-#define ALLOWED_OPTIONS ("lRdrt")
+#define ALLOWED_OPTIONS ("lRdrta")
 #define PERROR_PREFIX ("ls: ")
 
 typedef struct stat stat_t;

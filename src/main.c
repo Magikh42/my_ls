@@ -22,7 +22,7 @@ int main(int ac, char **av)
     int n_paths = count_paths(ac, av);
 
     if (paths == NULL)
-        ls_dir("./", options, true);
+        ls_dir(".", options, true);
     else {
         for (int i = 0; paths[i]; i++) {
             ls_dir(paths[i], options, n_paths <= 1);

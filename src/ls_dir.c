@@ -7,11 +7,12 @@
 
 #include "my_ls.h"
 #include "my.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 static DIR *s_opendir(char *path)
 {
@@ -37,8 +38,9 @@ static dirent_t *s_readdir(DIR *dirp)
     return (ret);
 }
 
-void ls_dir(char *path, char *options, bool is_single_dir)
+static void simple_ls(char *path, char *options, bool is_single_dir)
 {
+
     DIR *dirp = s_opendir(path);
     dirent_t *dirent;
 
@@ -47,9 +49,25 @@ void ls_dir(char *path, char *options, bool is_single_dir)
         my_putstr(":\n");
     }
     while ((dirent = s_readdir(dirp))) {
-        my_putstr(dirent->d_name);
-        my_putstr("\n");
+        if (dirent->d_name[0] != '.' || char_in_str('a', options)) {
+            my_putstr(dirent->d_name);
+            my_putstr("\n");
+        }
     }
     if (!is_single_dir)
         my_putstr("\n");
+}
+
+void ls_d(char *path)
+{
+    my_putstr(path);
+    my_putstr("\n");
+}
+
+void ls_dir(char *path, char *options, bool is_single_dir)
+{
+    if (!char_in_str('d', options))
+        simple_ls(path, options, is_single_dir);
+    else
+        ls_d(path);
 }
