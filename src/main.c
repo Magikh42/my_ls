@@ -7,15 +7,15 @@
 
 #include "my.h"
 #include "my_ls.h"
-
-int count_targets(int ac, char **av);
+#include <stdlib.h>
 
 int main(int ac, char **av)
 {
-    char **targets = get_targets(ac, av);
+    char **paths = get_paths(ac, av);
+    char *options = get_options(ac, av);
+    DIR **dirs = open_dirs(paths);
 
-    for (int i = 0; targets[i]; i++) {
-        my_putstr(targets[i]);
-        my_putchar('\n');
-    }
+    free(paths);
+    free(options);
+    free(dirs);
 }
