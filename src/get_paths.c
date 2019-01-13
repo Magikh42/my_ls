@@ -53,10 +53,7 @@ char **get_paths(int ac, char **av)
 
     if (n_paths)
         ret = get_paths_from_args(ac, av, n_paths);
-    else {
-        ret = malloc(2 * sizeof(char *));
-        ret[0] = ".";
-        ret[1] = NULL;
-    }
+    else
+        return (NULL);
     return (ret);
 }

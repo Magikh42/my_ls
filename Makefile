@@ -10,7 +10,8 @@ NAME		:=	my_ls
 _SRCS		:=	main.c		\
 				options.c	\
 				get_paths.c	\
-				open_dirs.c
+				ls_dir.c
+				# open_dirs.c
 
 SRCS		:=	$(_SRCS:%=src/%)
 

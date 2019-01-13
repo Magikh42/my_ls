@@ -5,3 +5,7 @@
 ** get_dirents
 */
 
+dirent_t **get_dirents(DIR *dir)
+{
+    
+}
